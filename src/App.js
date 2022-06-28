@@ -1,39 +1,52 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import Toast from 'react-bootstrap/Toast';
 import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
+import { Nav, Navbar } from 'react-bootstrap';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 import './App.scss';
 
-const ExampleToast = ({ children }) => {
-  const [show, toggleShow] = useState(true);
-
-  return (
-    <>
-      {!show && <Button onClick={() => toggleShow(true)}>Show Toast</Button>}
-      <Toast show={show} onClose={() => toggleShow(false)}>
-        <Toast.Header>
-          <strong className="mr-auto">React-Bootstrap</strong>
-        </Toast.Header>
-        <Toast.Body>{children}</Toast.Body>
-      </Toast>
-    </>
-  );
-};
-
 const App = () => (
-  <Container className="p-3">
-    <Container className="p-5 mb-4 bg-light rounded-3">
-      <h1 className="header">Welcome To React-Bootstrap</h1>
-      <ExampleToast>
-        We now have Toasts
-        <span role="img" aria-label="tada">
-          🎉
-        </span>
-      </ExampleToast>
+  <main className="main-content">
+    <Navbar collapseOnSelect expand="md" bg="light" variant="light">
+      <Container>
+        <Navbar.Brand href="#home">Shop</Navbar.Brand>
+        <Navbar.Toggle aria-controls="header-navbar-nav" />
+        <Navbar.Collapse id="header-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link href="#features"><img src="/images/bookmark_favorite_icon.svg" alt="Lista de desejos" /></Nav.Link>
+            <Nav.Link href="#deets"><img src="/images/bascket_icon.svg" alt="Carrinho" /></Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+
+    <Container>
+      <InputGroup className="mb-3">
+        <InputGroup.Text id="input-search">
+          <img src="/images/search_icon.svg" alt="Pesquisar" />
+        </InputGroup.Text>
+        <Form.Control
+          placeholder="Pesquisar"
+          aria-label="Pesquisar"
+          aria-describedby="input-search"
+        />
+      </InputGroup>
     </Container>
-  </Container>
+
+    <Navbar collapseOnSelect bg="light" variant="light" fixed="bottom">
+      <Container>
+        <Nav className="justify-content-between">
+          <Nav.Link href="#home"><img src="/images/home_icon.svg" alt="Home" /></Nav.Link>
+          <Nav.Link href="#search"><img src="/images/search_icon.svg" alt="Pesquisar" /></Nav.Link>
+          <Nav.Link href="#video"><img src="/images/video_icon.svg" alt="Vídeos" /></Nav.Link>
+          <Nav.Link href="#bag"><img src="/images/bascket_icon.svg" alt="Sacola" /></Nav.Link>
+          <Nav.Link href="#user"><img src="/images/user_icon.svg" alt="Usuário" /></Nav.Link>
+        </Nav>
+      </Container>
+    </Navbar>
+  </main>
 );
 
 export default App;
