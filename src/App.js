@@ -56,20 +56,18 @@ class App extends Component {
             />
           </InputGroup>
 
-          <Row className="my-5" render={ props => {
-            const allPosts = this.state.posts;
-            if (allPosts) return <Col>1 de 1</Col>
-          }}>
+          <Row className="my-5" render={props => this.state.posts.map()}>
+            <Col xs={6} md={4}>xs=6 md=4</Col>
+            <Col xs={6} md={4}>xs=6 md=4</Col>
+            <Col xs={6} md={4}>xs=6 md=4</Col>
           </Row>
         </Container>
 
         <Navbar collapseOnSelect bg="light" variant="light" fixed="bottom">
           <Container>
-            <Nav className="justify-content-between">
+            <Nav className="d-flex justify-content-between">
               <Nav.Link href="#home"><img src="/images/home_icon.svg" alt="Home" /></Nav.Link>
               <Nav.Link href="#search"><img src="/images/search_icon.svg" alt="Pesquisar" /></Nav.Link>
-              <Nav.Link href="#video"><img src="/images/video_icon.svg" alt="Vídeos" /></Nav.Link>
-              <Nav.Link href="#bag"><img src="/images/bascket_icon.svg" alt="Sacola" /></Nav.Link>
               <Nav.Link href="#user"><img src="/images/user_icon.svg" alt="Usuário" /></Nav.Link>
             </Nav>
           </Container>
