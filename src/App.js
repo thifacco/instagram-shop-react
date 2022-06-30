@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import axios from 'axios';
+import Post from './components/Post';
 
 import './App.scss';
 
@@ -20,8 +21,8 @@ class App extends Component {
   async componentDidMount() {
     try {
       const { data: posts } = await axios.get("/api/db.json");
-      this.setState({posts});
       console.log(posts);
+      this.setState({ posts });
     }
     catch (error) {
       console.log(error);
@@ -56,10 +57,8 @@ class App extends Component {
             />
           </InputGroup>
 
-          <Row className="my-5" render={props => this.state.posts.map()}>
-            <Col xs={6} md={4}>xs=6 md=4</Col>
-            <Col xs={6} md={4}>xs=6 md=4</Col>
-            <Col xs={6} md={4}>xs=6 md=4</Col>
+          <Row className="my-5">
+            <Col xs={6} md={4}>jjj <Post post={this.state.posts.stores}/></Col>
           </Row>
         </Container>
 
