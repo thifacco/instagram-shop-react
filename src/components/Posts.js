@@ -1,13 +1,13 @@
 import React from "react";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Post from './Post'
 
 const Posts = ({products}) => (
    <Row className="my-5">
       {products.map((product, index) => (
          <Col xs={6} md={4}>
-            <img src={'https://instagramshop.s3.amazonaws.com/'+product.image} className="img-fluid"/>
-            <h6>{product.title}</h6>
+            <Post post={product}/>
          </Col>   
       ))}
    </Row>
