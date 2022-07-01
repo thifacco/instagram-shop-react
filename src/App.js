@@ -4,25 +4,26 @@ import Container from 'react-bootstrap/Container';
 import { Nav, Navbar } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 import axios from 'axios';
-import Post from './components/Post';
+import Posts from './components/Posts';
 
 import './App.scss';
 
 class App extends Component {
 
   state = {
-    posts: []
+    stores: [],
+    products: []
   }
 
   async componentDidMount() {
     try {
       const { data: posts } = await axios.get("/api/db.json");
-      console.log(posts);
-      this.setState({ posts });
+      this.setState({ stores: posts.stores });
+      this.setState({ products: posts.products });
+      console.log('stores', this.state.stores);
+      console.log('products', this.state.products);
     }
     catch (error) {
       console.log(error);
@@ -57,9 +58,7 @@ class App extends Component {
             />
           </InputGroup>
 
-          <Row className="my-5">
-            <Col xs={6} md={4}>jjj <Post post={this.state.posts.stores}/></Col>
-          </Row>
+          <Posts products={this.state.products}/>
         </Container>
 
         <Navbar collapseOnSelect bg="light" variant="light" fixed="bottom">
