@@ -7,12 +7,6 @@ const Post = ({post}) => (
       <Ratio aspectRatio="1x1">
         <embed type="image/jpg" src={'https://instagramshop.s3.amazonaws.com/'+post.image} />
       </Ratio>
-      {/* <Card.Body>
-        <Card.Title>{post.title}</Card.Title>
-        <Card.Text>
-          {post.description}
-        </Card.Text>
-      </Card.Body> */}
     </Card>
 );
 
