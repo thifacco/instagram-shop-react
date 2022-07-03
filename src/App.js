@@ -23,8 +23,6 @@ class App extends Component {
       const { data: posts } = await axios.get("/api/db.json");
       this.setState({ stores: posts.stores });
       this.setState({ products: posts.products });
-      console.log('stores', this.state.stores);
-      console.log('products', this.state.products);
     }
     catch (error) {
       console.log(error);
