@@ -8,6 +8,10 @@ import axios from 'axios';
 import Header from './components/Header';
 import Posts from './components/Posts';
 import Footer from './components/Footer';
+import Page2 from './components/Page2'
+import Product from './components/Product';
+
+import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
 
 import './App.scss';
 
@@ -30,9 +34,14 @@ class App extends Component {
   }
 
   render() {
+    function getProduct() {
+      const { id } = useParams();
+      console.log('product ID', id);
+    }
+
     return (
       <main className="main-content">
-        <Header/>
+        <Header />
 
         <Container>
           <InputGroup className="mb-3">
@@ -46,10 +55,17 @@ class App extends Component {
             />
           </InputGroup>
 
-          <Posts products={this.state.products}/>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Posts products={this.state.products} />} />
+              <Route path="/:id" element={<Product />} />
+              <Route path="/page2" element={<Page2 />} />
+            </Routes>
+          </BrowserRouter>
+
         </Container>
 
-        <Footer/>
+        <Footer />
       </main>
     );
   }
