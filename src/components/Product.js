@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import Post from './Post';
+import React from 'react';
 
 const Product = ({ id }) => (
    <>

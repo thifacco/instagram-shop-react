@@ -3,15 +3,10 @@ import React, { Component } from 'react';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-
 import axios from 'axios';
 import Header from './components/Header';
-import Posts from './components/Posts';
 import Footer from './components/Footer';
-import Page2 from './components/Page2'
-import Product from './components/Product';
-
-import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
+import Permalink from './components/Permalink';
 
 import './App.scss';
 
@@ -34,11 +29,6 @@ class App extends Component {
   }
 
   render() {
-    function getProduct() {
-      const { id } = useParams();
-      console.log('product ID', id);
-    }
-
     return (
       <main className="main-content">
         <Header />
@@ -55,13 +45,15 @@ class App extends Component {
             />
           </InputGroup>
 
-          <BrowserRouter>
+          {/* <BrowserRouter>
             <Routes>
               <Route path="/" element={<Posts products={this.state.products} />} />
               <Route path="/:id" element={<Product />} />
               <Route path="/page2" element={<Page2 />} />
             </Routes>
-          </BrowserRouter>
+          </BrowserRouter> */}
+
+          <Permalink products={this.state.products}/>
 
         </Container>
 
