@@ -24,6 +24,9 @@ export default function Permalink(props) {
 
         <ul>
           <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
             <Link to="/netflix">Netflix</Link>
           </li>
           <li>
