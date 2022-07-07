@@ -13,7 +13,7 @@ export default function Permalink(props) {
   return (
     <Router>
       <Routes>
-        <Route path="/:id" element={<Child />} />
+        <Route path="/:id" element={<Post />} />
         <Route path="/" element={<Posts products={props.products} />} />
         <Route path="/:id" element={<Product />} />
         <Route path="/page2" element={<Page2 />} />
@@ -22,12 +22,12 @@ export default function Permalink(props) {
   );
 }
 
-function Child() {
-  let { id } = useParams();
+function Post() {
+  let {id} = useParams();
 
   return (
     <div>
-      <h3>ID: {id}</h3>
+      <h1>Post ID: {id}</h1>
     </div>
   );
 }
